@@ -1,4 +1,5 @@
 from time import sleep
+
 model = [
     ['    ', '    ', '    '],
     ['    ', '    ', '    '],
@@ -38,7 +39,7 @@ def playerChoice(row, column, symbol, model=model):
         return False
 
 
-def checkWin(machineSymbol, playerSymbol, model=model):
+def checkResult(machineSymbol, playerSymbol, model=model):
     checker = False
     for i in range(0, len(model)):
         if model[i][0] == model[i][1] == model[i][2] and model[i][0] != '    ' and model[i][1] != '    ' and model[i][2] != '    ':
@@ -71,7 +72,7 @@ def checkWin(machineSymbol, playerSymbol, model=model):
     return checker
 
 
-# Programa principal
+# Main Program
 print(f"{' JOGO DA VELHA ':#^41}")
 playerSymbol = input(
     'Escolha o seu simbolo [C -> 〇 / X -> ⨉]: ').upper().strip()[0]
@@ -83,7 +84,7 @@ while True:
     print('> Minha Vez ...')
     sleep(2)
     machineChoice(machineSymbol)
-    if not checkWin(machineSymbol, playerSymbol):
+    if not checkResult(machineSymbol, playerSymbol):
         break
     print('> Sua Vez ...')
     sleep(2)
@@ -95,5 +96,5 @@ while True:
             checkPosition = playerChoice(playerRow, playerColumn, playerSymbol)
         else:
             break
-    if not checkWin(machineSymbol, playerSymbol):
+    if not checkResult(machineSymbol, playerSymbol):
         break
