@@ -78,7 +78,6 @@ playerSymbol = input(
 machineSymbol = '⨉' if playerSymbol == 'C' else '○'
 playerSymbol = '○' if playerSymbol == 'C' else '⨉'
 
-varTeste = checkWin(machineSymbol, playerSymbol)
 checker = True
 while True:
     print('> Minha Vez ...')
